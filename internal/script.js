@@ -53,5 +53,59 @@
 
  }
 
- let player  = getComputerChoice();
- let computer = getComputerChoice();
+ 
+ /*
+  *  Play five rounds
+  * 
+  * 
+  *
+  */
+ function game(){
+    let playerScore = 0;
+    let ComputerScore = 0;
+    for( let i = 0; i < 5; i++)
+    {
+        let player  = getComputerChoice();
+        let computer = getComputerChoice();
+        let play = playRound(player,computer);
+        if(player.toLowerCase()  === 'Rock'.toLowerCase() && computer.toLowerCase() === 'Scissors'.toLowerCase())
+        {
+            playerScore = playerScore + 1;
+        }
+        else if(player.toLowerCase()  === 'Scissors'.toLowerCase() && computer.toLowerCase() === 'paper'.toLowerCase())
+        {
+        playerScore = playerScore + 1;
+        }
+        else if(player.toLowerCase()  === 'paper'.toLowerCase() && computer.toLowerCase() === 'rock'.toLowerCase())
+        {
+            playerScore = playerScore + 1;
+        }
+
+        else if(computer.toLowerCase()  === 'rock'.toLowerCase() && player.toLowerCase() === 'scissors'.toLowerCase())
+        {
+            ComputerScore = ComputerScore + 1;
+        }
+        else if(computer.toLowerCase()  === 'Scissors'.toLowerCase() && player.toLowerCase() === 'paper'.toLowerCase())
+        {
+            ComputerScore = ComputerScore + 1;
+        }
+        else if(computer.toLowerCase()  === 'paper'.toLowerCase() && computer.toLowerCase() === 'rock'.toLowerCase())
+        {
+            ComputerScore = ComputerScore + 1;
+        }
+
+    }
+    //console.log(ComputerScore + playerScore);
+    if( playerScore > ComputerScore)
+    {
+        console.log(`player won computer by ${playerScore} to ${ComputerScore}`);
+    }
+    else if( playerScore < ComputerScore)
+    {
+        console.log(`Computer won player  by ${ComputerScore} to ${playerScore}`);
+    }
+    else if ( playerScore === ComputerScore){
+        console.log(`Draw ! Computer : ${ComputerScore} Player : ${playerScore}`);
+    }    
+ }
+game()
